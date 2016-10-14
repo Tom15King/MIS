@@ -1,0 +1,58 @@
+CREATE TABLE `equipment` (
+  
+`equipmentid` int(11) NOT NULL,
+  
+`equipmentname` varchar(45) NOT NULL,
+  
+`equipmentype` varchar(45) NOT NULL,
+  
+`equipmentstatus` varchar(45) DEFAULT NULL,
+ 
+ PRIMARY KEY (`equipmentid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='设备表';
+
+CREATE TABLE `euipmaintenance` (
+ 
+ `euipmaintenanceid` int(11) NOT NULL,
+  
+`euipmaintenancename` varchar(45) NOT NULL DEFAULT '检修内容',
+ 
+ `equipmentid` int(11) NOT NULL,
+  `equipmentname` varchar(45) NOT NULL,
+ 
+ `materialname` varchar(45) NOT NULL,
+  `materialquantity` int(11) NOT NULL,
+  
+`maintenancetype` varchar(45) NOT NULL DEFAULT '检修类型',
+  
+`euipmaintenancedate` varchar(45) NOT NULL,
+ 
+ PRIMARY KEY (`euipmaintenanceid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='设备检修表';
+
+
+CREATE TABLE `maintenance` (
+  
+`maintenanceid` int(11) NOT NULL AUTO_INCREMENT,
+ 
+ `maintenanceman` varchar(45) NOT NULL,
+ 
+ `maintenancedate` date NOT NULL,
+  
+`equipmentid` int(11) NOT NULL,
+ 
+ PRIMARY KEY (`maintenanceid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='保养表';
+
+CREATE TABLE `maintenancenote` (
+  
+`maintenancenoteid` int(11) NOT NULL,
+  
+`equipmentid` int(11) NOT NULL,
+  
+`materialname` varchar(45) NOT NULL,
+ 
+`materialquantity` int(11) NOT NULL,
+  
+PRIMARY KEY (`maintenancenoteid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='保养记录';
